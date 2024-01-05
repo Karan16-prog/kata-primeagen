@@ -12,14 +12,13 @@ export default class Stack<T> {
         this.data.push(item);
     }
     pop(): T | undefined {
-        if (this.length > 0) {
-            this.length -= 1;
-            return this.data.pop();
-        } else {
-            return undefined;
+        let item = this.data.pop();
+        if (this.length != 0) {
+            this.length = this.length - 1;
         }
+        return item;
     }
     peek(): T | undefined {
-        return this.data[this.length];
+        return this.data[this.data.length - 1];
     }
 }
